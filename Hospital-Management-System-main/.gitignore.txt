@@ -1,0 +1,14 @@
+# Backend (Spring Boot - STS4)
+backend/target/
+backend/.mvn/
+backend/.idea/
+backend/*.iml
+
+# Frontend (React.js)
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# General
+.DS_Store
+*.log
