@@ -1,0 +1,21 @@
+package com.hms.repository;
+
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.hms.model.Patient;
+import com.hms.model.Prescription;
+
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.Query;
+
+@Repository
+public interface PrescriptionRepo extends JpaRepository<Prescription, Long> {
+    @Query("SELECT p FROM Prescription p WHERE p.appointment.patient.id = :patientId")
+    List<Prescription> findByAppointmentPatientId(@Param("patientId") Long patientId);
+    
+    List<Prescription> findByPatient(Patient patient);
+}
